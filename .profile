@@ -181,7 +181,7 @@ ffufq() {
 		-H "User-Agent: $(random_ua)" \
 		-H "$BBP_HEADER" \
 		-ac -mc all \
-		-o "$DISCOVERY/quick/$domain" \
+		-o "$DISCOVERY/quick/$domain"
 }
 
 ffufd() {
@@ -313,12 +313,12 @@ fuzz_wp() {
 			-w "FUZZ:$WORDLISTS/wp_plugins.txt" \
 			-w "HOST:$1" \
 			-H "User-Agent: $(random_ua)" \
-			-mc 200,204
+			-mc 200
 	else
 		ffuf -u "$1/wp-content/plugins/FUZZ/readme.txt" \
 			-w "$WORDLISTS/wp_plugins.txt" \
 			-H "User-Agent: $(random_ua)" \
-			-mc 200,204,403
+			-mc 200
 	fi
 }
 
